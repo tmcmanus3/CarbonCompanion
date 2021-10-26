@@ -6,6 +6,13 @@
         <entry key="..\:/Users/colli/AndroidStudioProjects/CarbonCompanion/app/src/main/res/layout/activity_login.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/colli/AndroidStudioProjects/CarbonCompanion/app/src/main/res/layout/activity_profile.xml" value="0.3265625" />
         <entry key="..\:/Users/colli/AndroidStudioProjects/CarbonCompanion/app/src/main/res/layout/settings_activity.xml" value="0.3333333333333333" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.278125" />
+        <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.1015625" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.3739946380697051" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.26197916666666665" />
+        <entry key="app/src/main/res/layout/activity_registration.xml" value="0.27724650865703593" />
+        <entry key="app/src/main/res/layout/settings_activity.xml" value="0.1673582038546268" />
       </map>
     </option>
   </component>
