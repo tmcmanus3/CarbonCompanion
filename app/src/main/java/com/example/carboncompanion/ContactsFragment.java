@@ -143,8 +143,8 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         // Gets the ListView from the View list of the parent activity
-        contactsList =
-                (ListView) getActivity().findViewById(R.id.list);
+        //contactsList =
+                //(ListView) getActivity().findViewById(R.id.list);
         // Gets a CursorAdapter
         cursorAdapter = new SimpleCursorAdapter(
                 getActivity(),
@@ -153,11 +153,11 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
                 FROM_COLUMNS, TO_IDS,
                 0);
         // Sets the adapter for the ListView
-        contactsList.setAdapter(cursorAdapter);
+        //contactsList.setAdapter(cursorAdapter);
 
 
         // Set the item click listener to be the current fragment.
-        contactsList.setOnItemClickListener(this);
+        //contactsList.setOnItemClickListener(this);
     }
 
     @Override
