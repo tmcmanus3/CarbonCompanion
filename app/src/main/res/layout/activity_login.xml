@@ -13,7 +13,7 @@
     tools:context=".ui.login.LoginActivity">
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
@@ -40,7 +40,7 @@
         android:textColor="#434343"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <Button
         android:id="@+id/login"
@@ -50,7 +50,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="64dp"
         android:backgroundTint="#69916E"
-        android:enabled="false"
         android:fontFamily="@font/montserrat"
         android:text="@string/action_sign_in"
         android:textColor="#434343"
@@ -68,7 +67,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="64dp"
         android:backgroundTint="#69916E"
-        android:enabled="false"
         android:fontFamily="@font/montserrat"
         android:text="@string/action_register"
         android:textColor="#434343"
@@ -76,7 +74,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.536" />
+        app:layout_constraintVertical_bias="0.536"
+        android:onClick="goToRegistration"/>
 
     <ProgressBar
         android:id="@+id/loading"
