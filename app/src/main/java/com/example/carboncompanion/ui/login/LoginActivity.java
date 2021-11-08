@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.example.carboncompanion.ProfileActivity;
 import com.example.carboncompanion.R;
 import com.example.carboncompanion.RegistrationActivity;
+import com.example.carboncompanion.SettingsActivity;
 import com.example.carboncompanion.ui.login.LoginViewModel;
 import com.example.carboncompanion.ui.login.LoginViewModelFactory;
 import com.example.carboncompanion.databinding.ActivityLoginBinding;
@@ -38,9 +39,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button registerBtn, loginBtn;
-    EditText mEmail, mPassword;
-    FirebaseAuth fAuth;
+    private Button registerBtn, loginBtn;
+    private EditText mEmail, mPassword;
+    private FirebaseAuth fAuth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

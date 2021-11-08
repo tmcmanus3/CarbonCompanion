@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,11 +18,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class RegistrationActivity extends AppCompatActivity {
-    EditText mFullName, mEmail, mPassword, mPhone;
-    Button mRegisterBtn, mLoginBtn;
-    FirebaseAuth fAuth;
+    private EditText mFullName, mEmail, mPassword, mPhone;
+    private Button mRegisterBtn, mLoginBtn;
+    private FirebaseAuth fAuth;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +51,19 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
+                String name = mFullName.getText().toString().trim();
+                String phone = mPhone.getText().toString().trim();
 
                 // check text entries
                 // TODO add more tests
+                if(TextUtils.isEmpty(name)) {
+                    mFullName.setError("Name is required");
+                    return;
+                }
+                if(TextUtils.isEmpty(phone)) {
+                    mPhone.setError("Phone number is required");
+                    return;
+                }
                 if(TextUtils.isEmpty(email)) {
                     mEmail.setError("Email is required");
                     return;
@@ -68,13 +82,22 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(RegistrationActivity.this, "User created.",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                            Toast.makeText(RegistrationActivity.this, "User created. Login to continue.",Toast.LENGTH_SHORT).show();
+                            // set display name
+                            user = fAuth.getCurrentUser();
+                            //Log.d("User", user.getUid().toString());
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(name).build();
+
+                            user.updateProfile(profileUpdates);
+
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         } else {
                             Toast.makeText(RegistrationActivity.this, "Error! " + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+
 
             }
         });
