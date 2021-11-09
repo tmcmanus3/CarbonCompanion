@@ -56,6 +56,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 // check text entries
                 // TODO add more tests
+
                 if(TextUtils.isEmpty(name)) {
                     mFullName.setError("Name is required");
                     return;
@@ -82,7 +83,8 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(RegistrationActivity.this, "User created. Login to continue.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistrationActivity.this, "User created.",Toast.LENGTH_SHORT).show();
+
                             // set display name
                             user = fAuth.getCurrentUser();
                             //Log.d("User", user.getUid().toString());
@@ -90,6 +92,11 @@ public class RegistrationActivity extends AppCompatActivity {
                                     .setDisplayName(name).build();
 
                             user.updateProfile(profileUpdates);
+
+                            // initialize user in the database
+                            User newUser = new User(email, 0, 0);
+                            DAUser daUser = new DAUser();
+                            daUser.add(newUser);
 
                             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         } else {
@@ -102,6 +109,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
+        // if login button is pressed, go back to the LoginActivity
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

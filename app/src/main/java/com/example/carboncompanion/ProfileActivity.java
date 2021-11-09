@@ -22,6 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseUser user;
     private NavigationBarView bottomNav;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
     };
 
+    // Logout from the app
     public void logoutFunc(View view) {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
