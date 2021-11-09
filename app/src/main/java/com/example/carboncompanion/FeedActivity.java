@@ -19,6 +19,7 @@ public class FeedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_feed);
 
         bottomNavigationView = findViewById(R.id.bottomnav);
+        bottomNavigationView.setSelectedItemId(R.id.feed);
         bottomNavigationView.setOnItemSelectedListener(bottomNavFunction);
     }
 
@@ -40,25 +41,25 @@ public class FeedActivity extends AppCompatActivity {
                 case R.id.feed:
                     Intent intentFeed = new Intent(getApplicationContext(), FeedActivity.class);
                     startActivity(intentFeed);
-                    break;
+                    return true;
                 case R.id.add_activity:
                     Intent intentAdd = new Intent(getApplicationContext(), AddActivity.class);
                     startActivity(intentAdd);
-                    break;
+                    return true;
                 case R.id.reward:
                     Intent intentReward = new Intent(getApplicationContext(), RewardActivity.class);
                     startActivity(intentReward);
-                    break;
+                    return true;
                 case R.id.settings:
                     Intent intentSettings = new Intent(getApplicationContext(), SettingsActivity.class);
                     startActivity(intentSettings);
-                    break;
+                    return true;
                 case R.id.profile:
                     Intent intentProfile = new Intent(getApplicationContext(), ProfileActivity.class);
                     startActivity(intentProfile);
-                    break;
+                    return true;
             }
-            return true;
+            return false;
         }
     };
 }

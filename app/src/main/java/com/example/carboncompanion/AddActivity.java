@@ -22,6 +22,7 @@ public class AddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add);
 
         bottomNavigationView = findViewById(R.id.bottomnav);
+        bottomNavigationView.setSelectedItemId(R.id.add_activity);
         bottomNavigationView.setOnItemSelectedListener(bottomNavFunction);
 
         // button to log a walk
@@ -39,22 +40,24 @@ public class AddActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch(item.getItemId()) {
                 case R.id.settings:
+
                     startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                    break;
+                    return true;
                 case R.id.add_activity:
+
                     startActivity(new Intent(getApplicationContext(), AddActivity.class));
-                    break;
+                    return true;
                 case R.id.reward:
                     startActivity(new Intent(getApplicationContext(), RewardActivity.class));
-                    break;
+                    return true;
                 case R.id.feed:
                     startActivity(new Intent(getApplicationContext(), FeedActivity.class));
-                    break;
+                    return true;
                 case R.id.profile:
                     startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                    break;
+                    return true;
             }
-            return true;
+            return false;
         }
     };
 }

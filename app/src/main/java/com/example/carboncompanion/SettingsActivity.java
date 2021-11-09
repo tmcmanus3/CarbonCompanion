@@ -22,6 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
 
 
         bottomNavigationView = findViewById(R.id.bottomnav);
+        bottomNavigationView.setSelectedItemId(R.id.settings);
         bottomNavigationView.setOnItemSelectedListener(bottomNavFunction);
 
         // Note : this code was causing the app to crash. so I removed it.
@@ -52,21 +53,22 @@ public class SettingsActivity extends AppCompatActivity {
             switch(item.getItemId()) {
                 case R.id.settings:
                     startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                    break;
+                    return true;
+
                 case R.id.add_activity:
                     startActivity(new Intent(getApplicationContext(), AddActivity.class));
-                    break;
+                    return true;
                 case R.id.reward:
                     startActivity(new Intent(getApplicationContext(), RewardActivity.class));
-                    break;
+                    return true;
                 case R.id.feed:
                     startActivity(new Intent(getApplicationContext(), FeedActivity.class));
-                    break;
+                    return true;
                 case R.id.profile:
                     startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                    break;
+                    return true;
             }
-            return true;
+            return false;
         }
     };
 }
