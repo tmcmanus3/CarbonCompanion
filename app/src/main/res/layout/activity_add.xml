@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#f2f2ed"
     tools:context=".AddActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -11,19 +12,164 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/barrier2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:menu="@menu/menu" />
 
-    <Button
+    <TextView
+        android:id="@+id/AddActivityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Add an Activity"
+        android:textColor="#5f8f8e"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/shop_local"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#69916e"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/volunteer"
+        app:layout_constraintEnd_toEndOf="@+id/recycle"
+        app:layout_constraintStart_toStartOf="@+id/recycle"
+        app:srcCompat="@drawable/ic_shop_local" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/recycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#69916e"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/vegetarian_meal"
+        app:layout_constraintEnd_toEndOf="@+id/walk"
+        app:layout_constraintStart_toStartOf="@+id/walk"
+        app:srcCompat="@drawable/ic_recycling" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/walk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Walk (Placeholder)"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="41dp"
+        android:backgroundTint="#69916e"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/bus"
         app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_walk" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="108dp"
+        android:backgroundTint="#69916e"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/bus"
+        app:layout_constraintTop_toTopOf="@+id/AddActivityTextView"
+        app:srcCompat="@drawable/ic_bike" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="56dp"
+        android:backgroundTint="#69916e"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/bike"
+        app:layout_constraintEnd_toStartOf="@+id/walk"
+        app:srcCompat="@drawable/ic_bus" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/lights_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="49dp"
+        android:backgroundTint="#69916e"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="@+id/plant_tree"
+        app:layout_constraintStart_toStartOf="@+id/plant_tree"
+        app:layout_constraintTop_toBottomOf="@+id/plant_tree"
+        app:srcCompat="@drawable/ic_lights_off" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/vegetarian_meal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#69916e"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/plant_tree"
+        app:layout_constraintEnd_toEndOf="@+id/bus"
+        app:layout_constraintStart_toStartOf="@+id/bus"
+        app:srcCompat="@drawable/ic_vegetarian_meal" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/volunteer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#69916e"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/lights_off"
+        app:layout_constraintEnd_toEndOf="@+id/vegetarian_meal"
+        app:layout_constraintStart_toStartOf="@+id/vegetarian_meal"
+        app:srcCompat="@drawable/ic_volunteer" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/plant_tree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:backgroundTint="#69916e"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="@+id/bike"
+        app:layout_constraintStart_toStartOf="@+id/bike"
+        app:layout_constraintTop_toBottomOf="@+id/bike"
+        app:srcCompat="@drawable/ic_plant_tree" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        tools:layout_editor_absoluteY="640dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        tools:layout_editor_absoluteY="640dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="320dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="180dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
