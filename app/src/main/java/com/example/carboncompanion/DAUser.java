@@ -24,8 +24,9 @@ public class DAUser {
         mDatabase = db.getReference(User.class.getSimpleName());
     }
 
-    public void add(User user) {
-        mDatabase.push().setValue(user);
+    public void add(String Uid, User user) {
+        DatabaseReference userRef = mDatabase.child(Uid);
+        userRef.setValue(user);
 
         //        DatabaseReference rootRef =  db.getReference();
         //        DatabaseReference userRef = rootRef.child("User");

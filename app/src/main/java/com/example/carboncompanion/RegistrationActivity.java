@@ -97,7 +97,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             // initialize user in the database
                             User newUser = new User(email, 0, 0);
                             DAUser daUser = new DAUser();
-                            daUser.add(newUser);
+                            daUser.add(user.getUid(),newUser);
 
                             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         } else {
