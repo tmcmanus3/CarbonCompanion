@@ -71,6 +71,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailView"
         />
+
     <TextView
         android:id="@+id/contactAccess"
         android:layout_width="wrap_content"
@@ -82,6 +83,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationAccess"
         />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnav"
         android:layout_width="match_parent"
@@ -92,4 +94,6 @@
         android:layout_alignParentBottom="true"
         app:menu="@menu/menu"
         />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
