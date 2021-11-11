@@ -2,7 +2,11 @@ package com.example.carboncompanion;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -10,8 +14,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SettingsActivity extends AppCompatActivity {
+    private TextView mFullName, mEmail, mPhone;
+    private FirebaseAuth fAuth;
+    private FirebaseUser user;
 
     private NavigationBarView bottomNavigationView;
 
@@ -20,9 +29,23 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
+        fAuth = FirebaseAuth.getInstance();
+        user = fAuth.getCurrentUser();
+        mFullName = findViewById(R.id.nameView);
+        mEmail = findViewById(R.id.emailView);
+       // mPhone = findViewById(R.id.phoneNumber);
+        // display name
+        if (user != null) {
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+          //  String number = user.getPhoneNumber();
+
+            mFullName.setText("Name: " + name);
+            mEmail.setText("Email: " + email);
+           // mPhone.setText("Phone number: "+number);
+        }
 
         bottomNavigationView = findViewById(R.id.bottomnav);
-        bottomNavigationView.setSelectedItemId(R.id.settings);
         bottomNavigationView.setOnItemSelectedListener(bottomNavFunction);
 
         // Note : this code was causing the app to crash. so I removed it.
@@ -53,22 +76,21 @@ public class SettingsActivity extends AppCompatActivity {
             switch(item.getItemId()) {
                 case R.id.settings:
                     startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                    return true;
-
+                    break;
                 case R.id.add_activity:
                     startActivity(new Intent(getApplicationContext(), AddActivity.class));
-                    return true;
+                    break;
                 case R.id.reward:
                     startActivity(new Intent(getApplicationContext(), RewardActivity.class));
-                    return true;
+                    break;
                 case R.id.feed:
                     startActivity(new Intent(getApplicationContext(), FeedActivity.class));
-                    return true;
+                    break;
                 case R.id.profile:
                     startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                    return true;
+                    break;
             }
-            return false;
+            return true;
         }
     };
 }
