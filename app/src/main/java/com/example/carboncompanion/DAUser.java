@@ -24,6 +24,7 @@ public class DAUser {
         mDatabase = db.getReference(User.class.getSimpleName());
     }
 
+    // Uid is the unique user id assigned by firebase. Can be seen on the authentication page of the firebase website
     public void add(String Uid, User user) {
         DatabaseReference userRef = mDatabase.child(Uid);
         userRef.setValue(user);
