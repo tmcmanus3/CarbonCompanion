@@ -13,18 +13,18 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.DecimalFormat;
 
-public class BikeActivity extends AppCompatActivity {
-    private Button bikeBtn, backBtn;
-    private EditText bikeDist;
+public class BusActivity extends AppCompatActivity {
+    private Button busBtn, backBtn;
+    private EditText busDist;
     private FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bike);
-        bikeBtn = findViewById(R.id.submitBikeDist);
+        setContentView(R.layout.activity_bus);
+        busBtn = findViewById(R.id.submitBusDist);
         backBtn = findViewById(R.id.back);
-        bikeDist = findViewById(R.id.bikeDist);
+        busDist = findViewById(R.id.busDist);
         fAuth = FirebaseAuth.getInstance();
 
         // Go back to add activity page
@@ -37,18 +37,18 @@ public class BikeActivity extends AppCompatActivity {
 
 
         // TODO update carbon multiplier. It's set at 0.1 rn
-        // this is supposed to log the bike ride to the database
-        bikeBtn.setOnClickListener(new View.OnClickListener() {
+        // this is supposed to log the bus ride to the database
+        busBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double distance = Double.parseDouble(bikeDist.getText().toString());
+                double distance = Double.parseDouble(busDist.getText().toString());
                 DecimalFormat df = new DecimalFormat("#.##");
                 if (distance > 0) {
-                    Toast.makeText(BikeActivity.this, "" + Double.valueOf(df.format(distance*0.1)) + " kg CO2 saved",Toast.LENGTH_SHORT).show();
-                    addBike(Double.valueOf(df.format(distance*0.1)));
+                    Toast.makeText(BusActivity.this, "" + Double.valueOf(df.format(distance*0.1)) + " kg CO2 saved",Toast.LENGTH_SHORT).show();
+                    addBus(Double.valueOf(df.format(distance*0.1)));
                     startActivity(new Intent(getApplicationContext(), AddActivity.class));
                 } else {
-                    Toast.makeText(BikeActivity.this, "Distance must be greater than 0" ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BusActivity.this, "Distance must be greater than 0" ,Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -58,7 +58,7 @@ public class BikeActivity extends AppCompatActivity {
 
     // Update database
     // Need to increase total number of activities by 1. and total carbon saved by the passed argument
-    private void addBike(double carbon) {
+    private void addBus(double carbon) {
 
 
     }

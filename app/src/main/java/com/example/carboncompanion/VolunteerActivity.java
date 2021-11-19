@@ -13,18 +13,18 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.DecimalFormat;
 
-public class BikeActivity extends AppCompatActivity {
-    private Button bikeBtn, backBtn;
-    private EditText bikeDist;
+public class VolunteerActivity extends AppCompatActivity {
+    private Button volunteerBtn, backBtn;
+    private EditText volunteerTask;
     private FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bike);
-        bikeBtn = findViewById(R.id.submitBikeDist);
+        setContentView(R.layout.activity_volunteer);
+        volunteerBtn = findViewById(R.id.submitVolunteer);
         backBtn = findViewById(R.id.back);
-        bikeDist = findViewById(R.id.bikeDist);
+        volunteerTask = findViewById(R.id.volunteerTask);
         fAuth = FirebaseAuth.getInstance();
 
         // Go back to add activity page
@@ -36,19 +36,20 @@ public class BikeActivity extends AppCompatActivity {
         });
 
 
-        // TODO update carbon multiplier. It's set at 0.1 rn
-        // this is supposed to log the bike ride to the database
-        bikeBtn.setOnClickListener(new View.OnClickListener() {
+        // TODO update carbon multiplier
+        // this is supposed to log the volunteer work to the database
+        volunteerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double distance = Double.parseDouble(bikeDist.getText().toString());
-                DecimalFormat df = new DecimalFormat("#.##");
-                if (distance > 0) {
-                    Toast.makeText(BikeActivity.this, "" + Double.valueOf(df.format(distance*0.1)) + " kg CO2 saved",Toast.LENGTH_SHORT).show();
-                    addBike(Double.valueOf(df.format(distance*0.1)));
+                String volunteer = volunteerTask.getText().toString();
+
+                if (volunteer.length() > 0) {
+                    //change to meaningful value
+                    Toast.makeText(VolunteerActivity.this, "# kg CO2 saved",Toast.LENGTH_SHORT).show();
+                    addVolunteer(); //No args for now at least
                     startActivity(new Intent(getApplicationContext(), AddActivity.class));
                 } else {
-                    Toast.makeText(BikeActivity.this, "Distance must be greater than 0" ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VolunteerActivity.this, "Enter how you volunteered!" ,Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -57,8 +58,8 @@ public class BikeActivity extends AppCompatActivity {
     }
 
     // Update database
-    // Need to increase total number of activities by 1. and total carbon saved by the passed argument
-    private void addBike(double carbon) {
+    // Need to increase total number of activities by 1. and total carbon saved (could just be flat amount?)
+    private void addVolunteer() {
 
 
     }

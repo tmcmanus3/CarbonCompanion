@@ -13,6 +13,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarbonCompanion">
         <activity
+            android:name=".LocalActivity"
+            android:exported="true" />
+        <activity
+            android:name=".VolunteerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RecycleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".VegActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TreeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BusActivity"
+            android:exported="true" />
+        <activity
             android:name=".BikeActivity"
             android:exported="true" />
         <activity

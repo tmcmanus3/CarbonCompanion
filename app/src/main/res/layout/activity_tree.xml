@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LightsActivity">
+    tools:context=".TreeActivity">
 
 
     <Button
-        android:id="@+id/submitLights"
+        android:id="@+id/submitTree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="292dp"
@@ -27,16 +27,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/submitLights"
+        app:layout_constraintTop_toBottomOf="@+id/submitTree"
         app:layout_constraintVertical_bias="0.106" />
 
     <TextView
-        android:id="@+id/LightsTextView"
+        android:id="@+id/TreeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="53dp"
         android:fontFamily="@font/montserrat"
-        android:text="Log Turning off Lights"
+        android:text="Log Planting a Tree"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"

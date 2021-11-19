@@ -56,7 +56,7 @@ public class AddActivity extends AppCompatActivity {
         busBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getApplicationContext(), BusActivity.class));
+                startActivity(new Intent(getApplicationContext(), BusActivity.class));
             }
         });
         //button to log planting a tree
@@ -64,7 +64,7 @@ public class AddActivity extends AppCompatActivity {
         treeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getApplicationContext(), TreeActivity.class));
+                startActivity(new Intent(getApplicationContext(), TreeActivity.class));
             }
         });
 
@@ -73,7 +73,7 @@ public class AddActivity extends AppCompatActivity {
         vegBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getApplicationContext(), VegActivity.class));
+                startActivity(new Intent(getApplicationContext(), VegActivity.class));
             }
         });
         //button to log recycling
@@ -81,7 +81,7 @@ public class AddActivity extends AppCompatActivity {
         recycleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getApplicationContext(), RecycleActivity.class));
+                startActivity(new Intent(getApplicationContext(), RecycleActivity.class));
             }
         });
         //button to log turning off the lights
@@ -97,7 +97,7 @@ public class AddActivity extends AppCompatActivity {
         volunteerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getApplicationContext(), VolunteerActivity.class));
+                startActivity(new Intent(getApplicationContext(), VolunteerActivity.class));
             }
         });
         //button to log shopping locally
@@ -105,7 +105,7 @@ public class AddActivity extends AppCompatActivity {
         localBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getApplicationContext(), LocalActivity.class));
+                startActivity(new Intent(getApplicationContext(), LocalActivity.class));
             }
         });
     }

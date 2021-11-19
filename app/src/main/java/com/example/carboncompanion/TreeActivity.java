@@ -13,16 +13,15 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.DecimalFormat;
 
-public class LightsActivity extends AppCompatActivity {
-    private Button lightsBtn, backBtn;
+public class TreeActivity extends AppCompatActivity {
+    private Button treeBtn, backBtn;
     private FirebaseAuth fAuth;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lights);
-        lightsBtn = findViewById(R.id.submitLights);
+        setContentView(R.layout.activity_tree);
+        treeBtn = findViewById(R.id.submitTree);
         backBtn = findViewById(R.id.back);
         fAuth = FirebaseAuth.getInstance();
 
@@ -35,24 +34,25 @@ public class LightsActivity extends AppCompatActivity {
         });
 
 
-        // TODO update carbon
-        // this is supposed to log the lights to the database
-        lightsBtn.setOnClickListener(new View.OnClickListener() {
+        // TODO update carbon multiplier
+        // this is supposed to log the tree
+        treeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //make a meaningful value
-                Toast.makeText(LightsActivity.this, "# kg of carbon saved!", Toast.LENGTH_SHORT).show();
-                addLights(); //no args, not sure what to put here
+                Toast.makeText(TreeActivity.this, "# kg of carbon saved" ,Toast.LENGTH_SHORT).show();
+                addTree(); //no args, unsure what to put here
                 startActivity(new Intent(getApplicationContext(), AddActivity.class));
-            }
+                }
         });
 
     }
 
     // Update database
     // Need to increase total number of activities by 1. and total carbon saved by the passed argument
-    private void addLights() {
+    private void addTree() {
 
 
     }
+
 }
