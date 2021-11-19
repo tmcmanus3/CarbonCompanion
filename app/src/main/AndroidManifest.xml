@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarbonCompanion">
         <activity
+            android:name=".BikeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LightsActivity"
+            android:exported="true" />
+        <activity
             android:name=".WalkActivity"
             android:exported="true" />
         <activity

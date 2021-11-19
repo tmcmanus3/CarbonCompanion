@@ -48,7 +48,7 @@ public class AddActivity extends AppCompatActivity {
         bikeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getApplicationContext(), BikeActivity.class));
+                startActivity(new Intent(getApplicationContext(), BikeActivity.class));
             }
         });
         //button to log a bus ride
@@ -89,7 +89,7 @@ public class AddActivity extends AppCompatActivity {
         lightBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getApplicationContext(), LightActivity.class));
+                startActivity(new Intent(getApplicationContext(), LightsActivity.class));
             }
         });
         //button to log volunteering
