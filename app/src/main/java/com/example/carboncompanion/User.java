@@ -10,8 +10,9 @@ public class User {
 
     public String email;
     public int numActivities;   // total number of activities completed
-    public int carbonSaved;     // total amount of carbon saved
+    public double carbonSaved;     // total amount of carbon saved
     public int goal;            // carbon goal
+    public String activities;
 
     public String getEmail() {
         return email;
@@ -29,12 +30,12 @@ public class User {
         this.numActivities = numActivities;
     }
 
-    public int getCarbonSaved() {
+    public double getCarbonSaved() {
         return carbonSaved;
     }
 
-    public void setCarbonSaved(int carbonSaved) {
-        this.carbonSaved = carbonSaved;
+    public void addCarbonSaved(double carbonSaved) {
+        this.carbonSaved += carbonSaved;
     }
 
     public int getGoal() {
@@ -44,6 +45,13 @@ public class User {
     public void setGoal(int goal) {
         this.goal = goal;
     }
+
+    public void addActivity(int ActivityType, String input) {
+        Activity tmpActivity = new Activity(ActivityType, input);
+        activities += "\n" + tmpActivity.toString();
+        numActivities++;
+    }
+    public String getActivities() { return activities; }
 
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(com.example.carboncompanion.User.class)
@@ -55,6 +63,7 @@ public class User {
         this.carbonSaved = carbonSaved;
         // goal defaults to 10
         this.goal = 10;
+        this.activities = "";
     }
 
 

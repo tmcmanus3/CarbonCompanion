@@ -1,15 +1,23 @@
 package com.example.carboncompanion;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
 
@@ -17,7 +25,9 @@ public class WalkActivity extends AppCompatActivity {
     private Button walkBtn, backBtn;
     private EditText walkDist;
     private FirebaseAuth fAuth;
-
+    private FirebaseUser user;
+    private DatabaseReference mDatabase;
+    private FirebaseDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +38,9 @@ public class WalkActivity extends AppCompatActivity {
         backBtn = findViewById(R.id.back);
         walkDist = findViewById(R.id.walkDist);
         fAuth = FirebaseAuth.getInstance();
+        user = fAuth.getCurrentUser();
+        db = FirebaseDatabase.getInstance();
+        mDatabase = db.getReference(User.class.getSimpleName());
 
         // Go back to add activity page
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +60,7 @@ public class WalkActivity extends AppCompatActivity {
                 DecimalFormat df = new DecimalFormat("#.##");
                 if (distance > 0) {
                     Toast.makeText(WalkActivity.this, "" + Double.valueOf(df.format(distance*0.1)) + " kg CO2 saved",Toast.LENGTH_SHORT).show();
-                    addWalk(Double.valueOf(df.format(distance*0.1)));
+                    addWalk(String.valueOf(distance), Double.valueOf(df.format(distance*0.1)));
                     startActivity(new Intent(getApplicationContext(), AddActivity.class));
                 } else {
                     Toast.makeText(WalkActivity.this, "Distance must be greater than 0" ,Toast.LENGTH_SHORT).show();
@@ -60,8 +73,22 @@ public class WalkActivity extends AppCompatActivity {
 
     // Update database
     // Need to increase total number of activities by 1. and total carbon saved by the passed argument
-    private void addWalk(double carbon) {
+    private void addWalk(String distance, double carbon) {
+        DatabaseReference child = mDatabase.child(user.getUid());
+        child.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User curr = snapshot.getValue(User.class);
+                curr.addActivity(1, distance);
+                curr.addCarbonSaved(carbon);
+                child.setValue(curr);
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("firebase", "database error ", error.toException());
+            }
+        });
 
     }
 }

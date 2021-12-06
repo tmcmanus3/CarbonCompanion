@@ -1,15 +1,23 @@
 package com.example.carboncompanion;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
 
@@ -17,6 +25,9 @@ public class RecycleActivity extends AppCompatActivity {
     private Button recycleBtn, backBtn;
     private EditText recycleItem;
     private FirebaseAuth fAuth;
+    private FirebaseUser user;
+    private DatabaseReference mDatabase;
+    private FirebaseDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +37,9 @@ public class RecycleActivity extends AppCompatActivity {
         backBtn = findViewById(R.id.back);
         recycleItem = findViewById(R.id.recycleItem);
         fAuth = FirebaseAuth.getInstance();
+        user = fAuth.getCurrentUser();
+        db = FirebaseDatabase.getInstance();
+        mDatabase = db.getReference(User.class.getSimpleName());
 
         // Go back to add activity page
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +58,7 @@ public class RecycleActivity extends AppCompatActivity {
                 String item = recycleItem.getText().toString();
                 if (item.length() > 0) {
                     Toast.makeText(RecycleActivity.this, "# kg CO2 saved",Toast.LENGTH_SHORT).show();
-                    addRecycle(); //No args, unsure what to put here
+                    addRecycle(item); //No args, unsure what to put here
                     startActivity(new Intent(getApplicationContext(), AddActivity.class));
                 } else {
                     Toast.makeText(RecycleActivity.this, "Enter what you recycled!" ,Toast.LENGTH_SHORT).show();
@@ -57,8 +71,21 @@ public class RecycleActivity extends AppCompatActivity {
 
     // Update database
     // Need to increase total number of activities by 1. and total carbon saved by the passed argument
-    private void addRecycle() {
+    private void addRecycle(String item) {
+        DatabaseReference child = mDatabase.child(user.getUid());
+        child.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User curr = snapshot.getValue(User.class);
+                curr.addActivity(5, item);
+                child.setValue(curr);
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("firebase", "database error ", error.toException());
+            }
+        });
 
     }
 

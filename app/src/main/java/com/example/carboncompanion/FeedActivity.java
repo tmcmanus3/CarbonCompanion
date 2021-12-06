@@ -5,18 +5,64 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 public class FeedActivity extends AppCompatActivity {
 
     private NavigationBarView bottomNavigationView;
+    private DatabaseReference mDatabase;
+    private FirebaseUser user;
+    private FirebaseAuth fAuth;
+    private FirebaseDatabase db;
+    private TextView activityText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
+
+
+        activityText = findViewById(R.id.activityText);
+        db = FirebaseDatabase.getInstance();
+        mDatabase = db.getReference(User.class.getSimpleName());
+        fAuth = FirebaseAuth.getInstance();
+        user = fAuth.getCurrentUser();
+
+        DatabaseReference child = mDatabase.child(user.getUid());
+        child.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User curr = snapshot.getValue(User.class);
+                String activities = getActivities(curr.getActivities());
+                activityText.setText(activities);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("firebase", "database error ", error.toException());
+            }
+
+            private String getActivities(String activities) {
+                String[] split = activities.split("\n");
+                StringBuilder builder = new StringBuilder();
+                for(String s: split) {
+                    builder.append(s + "\n");
+                }
+                return builder.toString();
+            }
+        });
 
         bottomNavigationView = findViewById(R.id.bottomnav);
         bottomNavigationView.setSelectedItemId(R.id.feed);

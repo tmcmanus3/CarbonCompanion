@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +24,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -31,11 +37,15 @@ import com.squareup.picasso.Picasso;
 public class ProfileActivity extends AppCompatActivity {
     private FirebaseAuth fAuth;
     private TextView welcomeMsg;
+    private TextView numActivities;
+    private TextView goal;
     private FirebaseUser user;
     private NavigationBarView bottomNavigationView;
     private ImageView profileImage;
     private Button changeProfileImage;
     private StorageReference storageReference;
+    private DatabaseReference mDatabase;
+    private FirebaseDatabase db;
 
 
     @Override
@@ -46,7 +56,11 @@ public class ProfileActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
         welcomeMsg = findViewById(R.id.welcomeText);
+        numActivities = findViewById(R.id.numberText);
+        goal = findViewById(R.id.goalText);
         storageReference = FirebaseStorage.getInstance().getReference();
+        db = FirebaseDatabase.getInstance();
+        mDatabase = db.getReference(User.class.getSimpleName());
 
         profileImage = findViewById(R.id.profileImage);
         changeProfileImage = findViewById(R.id.changeImage);
@@ -64,6 +78,27 @@ public class ProfileActivity extends AppCompatActivity {
         if (user != null) {
             String name = user.getDisplayName();
             welcomeMsg.setText("Welcome " + name);
+
+            //set activity number
+            DatabaseReference child = mDatabase.child(user.getUid());
+            child.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    User curr = snapshot.getValue(User.class);
+                    int currActivities = curr.getNumActivities();
+                    int currGoal = curr.getGoal();
+                    numActivities.setText(String.valueOf(currActivities) + " activities");
+                    if(currActivities >= currGoal) {
+                        goal.setText("Goal Reached!");
+                    } else {
+                        goal.setText("Current goal: " + String.valueOf(currGoal));
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.w("firebase", "database error ", error.toException());
+                }
+            });
         }
 
         bottomNavigationView = findViewById(R.id.bottomnav);
