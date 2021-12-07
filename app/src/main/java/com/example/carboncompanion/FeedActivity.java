@@ -2,6 +2,7 @@ package com.example.carboncompanion;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +17,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class FeedActivity extends AppCompatActivity {
@@ -36,33 +41,51 @@ public class FeedActivity extends AppCompatActivity {
 
         activityText = findViewById(R.id.activityText);
         db = FirebaseDatabase.getInstance();
-        mDatabase = db.getReference(User.class.getSimpleName());
+        mDatabase = db.getReference();
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
 
-        DatabaseReference child = mDatabase.child(user.getUid());
-        child.addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabase.child("activities").limitToLast(10).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                User curr = snapshot.getValue(User.class);
-                String activities = getActivities(curr.getActivities());
-                activityText.setText(activities);
+                StringBuilder builder = new StringBuilder();
+                //while(snapshot.getChildren())
+                ArrayList<String> activities = new ArrayList<String>();
+                for (DataSnapshot s1: snapshot.getChildren()) {
+                    activities.add(s1.getValue().toString());
+                    //activityText.setText(s1.toString());
+                }
+                Collections.reverse(activities);
+                for (String activity: activities) {
+                    builder.append(activity + "\n");
+                }
+                activityText.setText(builder.toString());
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.w("firebase", "database error ", error.toException());
-            }
 
-            private String getActivities(String activities) {
-                String[] split = activities.split("\n");
-                StringBuilder builder = new StringBuilder();
-                for(String s: split) {
-                    builder.append(s + "\n");
-                }
-                return builder.toString();
             }
         });
+        /*Log.d("testing", "made it here");
+        Query query = mDatabase.orderByChild("activities").limitToLast(10);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                StringBuilder builder = new StringBuilder();
+                for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                    String activity = (String) snapshot.getValue();
+                    builder.append(activity + "\n");
+                }
+                activityText.setText(builder.toString());
+                Log.d("testing", builder.toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        }); */
 
         bottomNavigationView = findViewById(R.id.bottomnav);
         bottomNavigationView.setSelectedItemId(R.id.feed);

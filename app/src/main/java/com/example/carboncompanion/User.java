@@ -48,7 +48,7 @@ public class User {
 
     public void addActivity(int ActivityType, String input) {
         Activity tmpActivity = new Activity(ActivityType, input);
-        activities += "\n" + tmpActivity.toString();
+        activities += "\n" + "You " + tmpActivity.toString();
         numActivities++;
     }
     public String getActivities() { return activities; }

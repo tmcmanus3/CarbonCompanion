@@ -12,23 +12,23 @@ public class Activity {
     public String toString() {
         switch (ActivityType) {
             case 0:
-                return "Biked " + input + " miles.";
+                return "biked " + input + " miles.";
             case 1:
-                return "Walked " + input + " miles.";
+                return "walked " + input + " miles.";
             case 2:
-                return "Bussed " + input + " miles.";
+                return "bussed " + input + " miles.";
             case 3:
-                return "Planted a tree.";
+                return "planted a tree.";
             case 4:
-                return "Ate " + input;
+                return "ate " + input;
             case 5:
-                return "Recycled " + input;
+                return "recycled " + input;
             case 6:
-                return "Turned his lights off.";
+                return "turned his lights off.";
             case 7:
-                return "Volunteered doing " + input;
+                return "volunteered doing " + input;
             case 8:
-                return "Bought " + input + " locally";
+                return "bought " + input + " locally";
         }
         return "";
     }

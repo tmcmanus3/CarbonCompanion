@@ -39,7 +39,7 @@ public class VegActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
         db = FirebaseDatabase.getInstance();
-        mDatabase = db.getReference(User.class.getSimpleName());
+        mDatabase = db.getReference();
 
         // Go back to add activity page
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +74,11 @@ public class VegActivity extends AppCompatActivity {
     // Need to increase total number of activities by 1. and total carbon saved by the passed argument
     // No args, unsure what to base this carbon off of
     private void addMeal(String meal) {
-        DatabaseReference child = mDatabase.child(user.getUid());
+        long curr = System.currentTimeMillis();
+        Activity act = new Activity(4, meal);
+        mDatabase.child("activities").child(String.valueOf(curr)).setValue(user.getDisplayName() + " " +  act.toString());
+
+        DatabaseReference child = mDatabase.child(User.class.getSimpleName()).child(user.getUid());
         child.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

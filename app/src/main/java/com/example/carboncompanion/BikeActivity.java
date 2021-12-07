@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Type;
 import java.text.DecimalFormat;
+import java.time.Instant;
 
 public class BikeActivity extends AppCompatActivity {
     private Button bikeBtn, backBtn;
@@ -43,7 +44,7 @@ public class BikeActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
         db = FirebaseDatabase.getInstance();
-        mDatabase = db.getReference(User.class.getSimpleName());
+        mDatabase = db.getReference();
 
         // Go back to add activity page
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +78,12 @@ public class BikeActivity extends AppCompatActivity {
     // Update database
     // Need to increase total number of activities by 1. and total carbon saved by the passed argument
         private void addBike(String distance, double carbon) {
-            DatabaseReference child = mDatabase.child(user.getUid());
+            long curr = System.currentTimeMillis();
+            //ServerValue.
+            Activity act = new Activity(0, distance);
+            mDatabase.child("activities").child(String.valueOf(curr)).setValue(user.getDisplayName() + " " +  act.toString());
+
+            DatabaseReference child = mDatabase.child(User.class.getSimpleName()).child(user.getUid());
             child.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {

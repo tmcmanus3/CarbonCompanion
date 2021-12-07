@@ -39,7 +39,7 @@ public class BusActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
         db = FirebaseDatabase.getInstance();
-        mDatabase = db.getReference(User.class.getSimpleName());
+        mDatabase = db.getReference();
 
         // Go back to add activity page
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +73,12 @@ public class BusActivity extends AppCompatActivity {
     // Update database
     // Need to increase total number of activities by 1. and total carbon saved by the passed argument
     private void addBus(String distance, double carbon) {
-        DatabaseReference child = mDatabase.child(user.getUid());
+        long curr = System.currentTimeMillis();
+        Activity act = new Activity(2, distance);
+        mDatabase.child("activities").child(String.valueOf(curr)).setValue(user.getDisplayName() + " " +  act.toString());
+
+
+        DatabaseReference child = mDatabase.child(User.class.getSimpleName()).child(user.getUid());
         child.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
