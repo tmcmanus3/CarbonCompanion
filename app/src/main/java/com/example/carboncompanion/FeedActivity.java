@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationBarView;
@@ -45,7 +47,7 @@ public class FeedActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
 
-        mDatabase.child("activities").limitToLast(10).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("activities").limitToLast(20).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 StringBuilder builder = new StringBuilder();
@@ -60,6 +62,7 @@ public class FeedActivity extends AppCompatActivity {
                     builder.append(activity + "\n");
                 }
                 activityText.setText(builder.toString());
+                activityText.setMovementMethod(new ScrollingMovementMethod());
             }
 
             @Override
