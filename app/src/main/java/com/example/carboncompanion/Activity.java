@@ -22,7 +22,7 @@ public class Activity {
             case 4:
                 return "ate " + input + " vegetarian meals.";
             case 5:
-                return "recycled " + input + "items.";
+                return "recycled " + input + " items.";
             case 6:
                 return "turned his lights off.";
             case 7:

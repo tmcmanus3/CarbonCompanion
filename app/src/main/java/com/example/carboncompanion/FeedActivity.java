@@ -22,8 +22,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 
 
 public class FeedActivity extends AppCompatActivity {
@@ -52,9 +55,11 @@ public class FeedActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 StringBuilder builder = new StringBuilder();
                 //while(snapshot.getChildren())
-                ArrayList<String> activities = new ArrayList<String>();
+                ArrayList<String> activities = new ArrayList<>();
                 for (DataSnapshot s1: snapshot.getChildren()) {
-                    activities.add(s1.getValue().toString());
+                    String time = convertTime(Long.parseLong(s1.getKey()));
+                    String input = s1.child("user_name").getValue().toString() + " " + s1.child("activity_string").getValue().toString() + "\n    " + time;
+                    activities.add(input);
                     //activityText.setText(s1.toString());
                 }
                 Collections.reverse(activities);
@@ -65,6 +70,11 @@ public class FeedActivity extends AppCompatActivity {
                 activityText.setMovementMethod(new ScrollingMovementMethod());
             }
 
+            public String convertTime(long time){
+                Date date = new Date(time);
+                Format format = new SimpleDateFormat("MM/dd HH:mm");
+                return format.format(date);
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

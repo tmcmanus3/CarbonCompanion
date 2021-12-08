@@ -81,7 +81,11 @@ public class BikeActivity extends AppCompatActivity {
             long curr = System.currentTimeMillis();
             //ServerValue.
             Activity act = new Activity(0, distance);
-            mDatabase.child("activities").child(String.valueOf(curr)).setValue(user.getDisplayName() + " " +  act.toString());
+            DatabaseReference curr_node = mDatabase.child("activities").child(String.valueOf(curr));
+            curr_node.child("user_name").setValue(user.getDisplayName());
+            curr_node.child("user_id").setValue(user.getUid());
+            curr_node.child("activity_string").setValue(act.toString());
+
 
             DatabaseReference child = mDatabase.child(User.class.getSimpleName()).child(user.getUid());
             child.addListenerForSingleValueEvent(new ValueEventListener() {

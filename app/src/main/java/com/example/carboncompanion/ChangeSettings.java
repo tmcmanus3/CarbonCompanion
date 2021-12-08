@@ -20,12 +20,18 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ChangeSettings extends AppCompatActivity {
     private TextView mFullName, mEmail, mPhone, changeSettings;
     private Button mSubmitBtn, mCancelBtn;
     private FirebaseAuth fAuth;
     private FirebaseUser user;
+    private DatabaseReference mDatabase;
 
     private NavigationBarView bottomNavigationView;
 
@@ -36,6 +42,7 @@ public class ChangeSettings extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         mFullName = findViewById(R.id.editName);
         mEmail = findViewById(R.id.editEmailAddress);
         mSubmitBtn = findViewById(R.id.submitChangeButton);
@@ -55,11 +62,31 @@ public class ChangeSettings extends AppCompatActivity {
             public void onClick(View view) {
                 String newName = mFullName.getText().toString();
 
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                //FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                         .setDisplayName(newName)
                         .build();
+
+                mDatabase.child("activities").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot activity: snapshot.getChildren()) {
+                            //Log.d("search_id", user.getUid());
+                            //Log.d("curr_id", activity.child("user_id").getValue().toString());
+                            if(activity.child("user_id").getValue().toString().equals(user.getUid())) {
+                                //Log.d("old name", user.getDisplayName());
+                                String actString = activity.child("activity_string").getValue().toString();
+                                mDatabase.child("activities").child(activity.getKey()).child("user_name").setValue(newName);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
                 user.updateProfile(profileUpdates)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -70,6 +97,8 @@ public class ChangeSettings extends AppCompatActivity {
                                 }
                             }
                         });
+
+
 
 
                 startActivity(new Intent(getApplicationContext(), FeedActivity.class));

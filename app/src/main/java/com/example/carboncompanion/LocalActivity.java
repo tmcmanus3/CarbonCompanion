@@ -74,7 +74,10 @@ public class LocalActivity extends AppCompatActivity {
     private void addLocal(String item) {
         long curr = System.currentTimeMillis();
         Activity act = new Activity(8, item);
-        mDatabase.child("activities").child(String.valueOf(curr)).setValue(user.getDisplayName() + " " +  act.toString());
+        DatabaseReference curr_node = mDatabase.child("activities").child(String.valueOf(curr));
+        curr_node.child("user_name").setValue(user.getDisplayName());
+        curr_node.child("user_id").setValue(user.getUid());
+        curr_node.child("activity_string").setValue(act.toString());
 
         DatabaseReference child = mDatabase.child(User.class.getSimpleName()).child(user.getUid());
         child.addListenerForSingleValueEvent(new ValueEventListener() {
