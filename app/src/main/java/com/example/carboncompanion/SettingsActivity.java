@@ -46,6 +46,7 @@ public class SettingsActivity extends AppCompatActivity {
             mEmail.setText("Email: " + email);
         }
 
+
         bottomNavigationView = findViewById(R.id.bottomnav);
         bottomNavigationView.setSelectedItemId(R.id.settings);
         bottomNavigationView.setOnItemSelectedListener(bottomNavFunction);
