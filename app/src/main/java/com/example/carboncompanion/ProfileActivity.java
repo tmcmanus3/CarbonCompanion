@@ -47,7 +47,6 @@ public class ProfileActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseDatabase db;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +100,7 @@ public class ProfileActivity extends AppCompatActivity {
             });
         }
 
+
         bottomNavigationView = findViewById(R.id.bottomnav);
         bottomNavigationView.setSelectedItemId(R.id.profile);
         bottomNavigationView.setOnItemSelectedListener(bottomNavFunction);
@@ -114,6 +114,8 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivityForResult(openGalleryIntent, 1000);
             }
         });
+
+        //.setOnClickListener(new View.OnClickListener()
     }
 
     @Override

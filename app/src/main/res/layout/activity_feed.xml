@@ -7,6 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".FeedActivity">
 
+    <TextView
+        android:id="@+id/activityHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Activity Feed"
+        android:textColor="#5f8f8e"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+     />
+
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="wrap_content"
@@ -14,23 +27,25 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomnav"
         app:layout_constraintEnd_toStartOf="@+id/bottomnav"
         app:layout_constraintStart_toStartOf="@+id/bottomnav"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
         android:id="@+id/activityText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
+        android:fontFamily="@font/lato"
         android:text="0 activities"
-        android:textColor="#5f8f8e"
+        android:textColor="#434343"
         android:textSize="24sp"
         android:scrollbars="vertical"
-        android:maxLines="8"
+        android:maxLines="12"
+        android:lineSpacingMultiplier="1.2"
         app:layout_constraintBottom_toBottomOf="@+id/bottomnav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/activityHeading"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnav"

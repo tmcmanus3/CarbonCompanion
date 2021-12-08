@@ -26,13 +26,16 @@
         <entry key="..\:/Users/taidg/OneDrive/Documents/College/2021-2022/SemesterOne/CS407/CarbonCompanion2/app/src/main/res/layout/activity_veg.xml" value="0.18085106382978725" />
         <entry key="..\:/Users/taidg/OneDrive/Documents/College/2021-2022/SemesterOne/CS407/CarbonCompanion2/app/src/main/res/layout/activity_volunteer.xml" value="0.18085106382978725" />
         <entry key="..\:/Users/taidg/OneDrive/Documents/College/2021-2022/SemesterOne/CS407/CarbonCompanion2/app/src/main/res/layout/activity_walk.xml" value="0.18085106382978725" />
+        <entry key="app/src/main/res/drawable/ic_add_activity.xml" value="0.278125" />
         <entry key="app/src/main/res/drawable/ic_feed.xml" value="0.30925925925925923" />
+        <entry key="app/src/main/res/drawable/ic_profile.xml" value="0.1515625" />
         <entry key="app/src/main/res/layout/activity_add.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/layout/activity_feed.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.30885416666666665" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/layout/activity_reward.xml" value="0.32083333333333336" />
+        <entry key="app/src/main/res/layout/activity_volunteer.xml" value="0.811623246492986" />
         <entry key="app/src/main/res/layout/activity_walk.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/layout/settings_activity.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.32083333333333336" />

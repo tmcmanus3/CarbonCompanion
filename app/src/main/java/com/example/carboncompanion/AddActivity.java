@@ -13,7 +13,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class AddActivity extends AppCompatActivity {
-
     private NavigationBarView bottomNavigationView;
     private FloatingActionButton walkBtn;
     private FloatingActionButton bikeBtn;
@@ -40,6 +39,8 @@ public class AddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), WalkActivity.class));
+
+
             }
         });
 

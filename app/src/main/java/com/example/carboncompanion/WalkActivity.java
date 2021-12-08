@@ -25,9 +25,11 @@ public class WalkActivity extends AppCompatActivity {
     private Button walkBtn, backBtn;
     private EditText walkDist;
     private FirebaseAuth fAuth;
+
     private FirebaseUser user;
     private DatabaseReference mDatabase;
     private FirebaseDatabase db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class WalkActivity extends AppCompatActivity {
         backBtn = findViewById(R.id.back);
         walkDist = findViewById(R.id.walkDist);
         fAuth = FirebaseAuth.getInstance();
+
         user = fAuth.getCurrentUser();
         db = FirebaseDatabase.getInstance();
         mDatabase = db.getReference();
@@ -93,6 +96,7 @@ public class WalkActivity extends AppCompatActivity {
                 Log.w("firebase", "database error ", error.toException());
             }
         });
+
 
     }
 }

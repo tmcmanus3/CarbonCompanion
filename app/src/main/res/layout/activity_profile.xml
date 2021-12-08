@@ -22,12 +22,24 @@
         app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
     <TextView
+        android:id="@+id/profileText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Profile"
+        android:textColor="#5f8f8e"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:text="Welcome back, "
-        android:textColor="#5f8f8e"
+        android:textColor="#8ec1c0"
         android:textSize="24sp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.1"
@@ -41,8 +53,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
-        android:text="0 activities"
-        android:textColor="#5f8f8e"
+        android:text="Activities: "
+        android:textColor="#8ec1c0"
         android:textSize="24sp"
         app:layout_constraintVertical_bias="0.05"
         app:layout_constraintHorizontal_bias="0.5"
@@ -57,7 +69,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato"
         android:text="logging goal"
-        android:textColor="#8ec1c0"
+        android:textColor="#434343"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.1"
         app:layout_constraintBottom_toBottomOf="parent"

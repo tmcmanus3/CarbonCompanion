@@ -2,8 +2,10 @@ package com.example.carboncompanion;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class SettingsActivity extends AppCompatActivity {
-    private TextView mFullName, mEmail, mPhone;
+    private TextView mFullName, mEmail, mPhone, changeSettings;
     private FirebaseAuth fAuth;
     private FirebaseUser user;
 
@@ -33,21 +35,23 @@ public class SettingsActivity extends AppCompatActivity {
         user = fAuth.getCurrentUser();
         mFullName = findViewById(R.id.nameView);
         mEmail = findViewById(R.id.emailView);
-       // mPhone = findViewById(R.id.phoneNumber);
+        mPhone = findViewById(R.id.phoneNumber);
+        changeSettings = findViewById(R.id.changeSettings);
+
         // display name
         if (user != null) {
             String name = user.getDisplayName();
             String email = user.getEmail();
-          //  String number = user.getPhoneNumber();
+            //  String number = user.getPhoneNumber();
 
             mFullName.setText("Name: " + name);
             mEmail.setText("Email: " + email);
-           // mPhone.setText("Phone number: "+number);
+            // mPhone.setText("Phone number: "+number);
         }
 
         bottomNavigationView = findViewById(R.id.bottomnav);
+        bottomNavigationView.setSelectedItemId(R.id.settings);
         bottomNavigationView.setOnItemSelectedListener(bottomNavFunction);
-
         // Note : this code was causing the app to crash. so I removed it.
 
 //        if (savedInstanceState == null) {
@@ -60,7 +64,13 @@ public class SettingsActivity extends AppCompatActivity {
 //        if (actionBar != null) {
 //            actionBar.setDisplayHomeAsUpEnabled(true);
 //        }
-
+        changeSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // TODO: Make a new class to ask user if they want to change email, username, PW, etc.
+             //   startActivity(startActivity(new Intent(getApplicationContext(), ChangeSettingsActivity.class));
+            }
+        });
     }
 
 //    public static class SettingsFragment extends PreferenceFragmentCompat {
@@ -69,6 +79,7 @@ public class SettingsActivity extends AppCompatActivity {
 //            setPreferencesFromResource(R.xml.root_preferences, rootKey);
 //        }
 //    }
+
 
     private NavigationBarView.OnItemSelectedListener bottomNavFunction = new NavigationBarView.OnItemSelectedListener() {
         @Override
