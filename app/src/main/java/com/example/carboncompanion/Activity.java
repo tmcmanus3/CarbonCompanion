@@ -20,15 +20,15 @@ public class Activity {
             case 3:
                 return "planted a tree.";
             case 4:
-                return "ate " + input;
+                return "ate " + input + " vegetarian meals.";
             case 5:
-                return "recycled " + input;
+                return "recycled " + input + "items.";
             case 6:
                 return "turned his lights off.";
             case 7:
-                return "volunteered doing " + input;
+                return "volunteered " + input +" times.";
             case 8:
-                return "bought " + input + " locally";
+                return "bought " + input + " items locally.";
         }
         return "";
     }

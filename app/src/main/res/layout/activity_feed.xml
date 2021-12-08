@@ -32,18 +32,18 @@
 
     <TextView
         android:id="@+id/activityText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingTop="60dp"
         android:fontFamily="@font/lato"
         android:text="0 activities"
         android:textColor="#434343"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:scrollbars="vertical"
-        android:maxLines="12"
-        android:lineSpacingMultiplier="1.2"
+        android:lineSpacingMultiplier="1.4"
         app:layout_constraintBottom_toBottomOf="@+id/bottomnav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/activityHeading"/>
 
