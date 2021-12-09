@@ -43,6 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
     private NavigationBarView bottomNavigationView;
     private ImageView profileImage;
     private Button changeProfileImage;
+    private Button setGoal;
     private StorageReference storageReference;
     private DatabaseReference mDatabase;
     private FirebaseDatabase db;
@@ -57,6 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
         welcomeMsg = findViewById(R.id.welcomeText);
         numActivities = findViewById(R.id.numberText);
         goal = findViewById(R.id.goalText);
+        setGoal = findViewById(R.id.setGoal);
         storageReference = FirebaseStorage.getInstance().getReference();
         db = FirebaseDatabase.getInstance();
         mDatabase = db.getReference(User.class.getSimpleName());
@@ -115,6 +117,12 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        setGoal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), SetGoal.class));
+            }
+        });
         //.setOnClickListener(new View.OnClickListener()
     }
 

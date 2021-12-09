@@ -4,69 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#f2f2ed"
-    tools:context=".ChangeSettings">
+    tools:context=".SetGoal">
 
     <TextView
         android:id="@+id/changeSettingsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat"
-        android:text="Change Settings"
+        android:text="Set Goal"
         android:textColor="#5f8f8e"
         android:textSize="30sp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <EditText
-        android:id="@+id/editName"
+        android:id="@+id/editGoal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
         android:ems="10"
         android:fontFamily="@font/lato"
-        android:hint="Name"
-        android:inputType="textPersonName"
+        android:hint="New Goal"
+        android:inputType="number"
         android:textColor="#434343"
+        android:layout_marginTop="152dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/changeSettingsText" />
 
-    <EditText
-        android:id="@+id/editEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:fontFamily="@font/lato"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:textColor="#434343"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editName" />
-
     <Button
-        android:id="@+id/submitChangeButton"
+        android:id="@+id/submitGoalButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
         android:text="Submit"
-        app:layout_constraintBottom_toTopOf="@id/cancelChangeButton"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@id/cancelGoalButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/cancelChangeButton"
+        android:id="@+id/cancelGoalButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="5dp"
         android:text="Cancel"
+        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

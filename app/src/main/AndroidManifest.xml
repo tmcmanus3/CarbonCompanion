@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarbonCompanion">
         <activity
+            android:name=".SetGoal"
+            android:exported="true" />
+        <activity
             android:name=".ChangeSettings"
             android:exported="true" />
         <activity

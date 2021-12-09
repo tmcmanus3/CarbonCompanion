@@ -114,7 +114,7 @@ public class ChangeSettings extends AppCompatActivity {
                         });
 
 
-                startActivity(new Intent(getApplicationContext(), FeedActivity.class));
+                startActivity(new Intent(getApplicationContext(),FeedActivity.class));
                 // re-routing to Feed rather than Settings or Profile bc upon going to those first,
                 // name does not appear updated until you go to a different activity first
 
@@ -125,7 +125,7 @@ public class ChangeSettings extends AppCompatActivity {
         mCancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), FeedActivity.class));
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 }
             });
     }
