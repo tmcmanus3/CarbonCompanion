@@ -65,7 +65,6 @@ public class SettingsActivity extends AppCompatActivity {
         changeSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // TODO: Make a new class to ask user if they want to change email, username, PW, etc.
                 startActivity(new Intent(getApplicationContext(), ChangeSettings.class));
             }
         });

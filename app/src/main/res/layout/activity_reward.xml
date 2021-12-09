@@ -5,6 +5,82 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RewardActivity">
+    <TextView
+        android:id="@+id/rewardTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Rewards"
+        android:textColor="#5f8f8e"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/container"
+        app:layout_constraintBottom_toTopOf="@+id/bottomnav"
+        app:layout_constraintEnd_toStartOf="@+id/bottomnav"
+        app:layout_constraintStart_toStartOf="@+id/rewardTotal"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+        <TextView
+            android:id="@+id/rewardContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="72dp"
+            android:layout_toRightOf="@id/reward_icon"
+            android:fontFamily="@font/lato"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingLeft="50dp"
+            android:paddingTop="60dp"
+
+            android:scrollbars="vertical"
+            android:text="Reward Content"
+            android:textColor="#434343"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/bottomnav"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rewardTotal" />
+
+
+
+    <ImageView
+        android:id="@+id/reward_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#69916e"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rewardTotal"
+        app:layout_constraintVertical_bias="0.104"
+        android:layout_below="@+id/rewardTotal"
+        app:srcCompat="@drawable/ic_baseline_stars_24" />
+
+    <ImageView
+        android:id="@+id/reward_icon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#69916e"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/reward_icon"
+        android:layout_below="@+id/reward_icon"
+        app:layout_constraintVertical_bias="0.104"
+        app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnav"
@@ -16,5 +92,7 @@
         android:layout_alignParentBottom="true"
         app:menu="@menu/menu"
         />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
