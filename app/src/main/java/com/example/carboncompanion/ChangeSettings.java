@@ -66,17 +66,16 @@ public class ChangeSettings extends AppCompatActivity {
                 //FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 //update email
-              if (String.valueOf(user.getEmail()) != newEmail) {
+
                   user.updateEmail(newEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
                       @Override
                       public void onComplete(@NonNull Task<Void> task) {
                           if (task.isSuccessful()) {
                               Log.d("done", "Email updated");
-
+                             // Toast.makeText(getApplicationContext(), "RE-LOGIN TO SEE UPDATED EMAIL", 5000).show();
                           }
                       }
                   });
-              }
 
               //update profile name
                 UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
@@ -109,6 +108,7 @@ public class ChangeSettings extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Log.d("done", "Profile updated");
+                                    Toast.makeText(getApplicationContext(), "RE-LOGIN TO SEE UPDATED EMAIL or PW", Toast.LENGTH_LONG).show();
                                 }
                             }
                         });
