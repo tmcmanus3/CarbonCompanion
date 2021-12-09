@@ -32,5 +32,8 @@ public class Activity {
         }
         return "";
     }
+    public int getActivityType(){
+        return ActivityType;
+    }
 
 }
