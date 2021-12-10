@@ -31,11 +31,15 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
+
+
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
         mFullName = findViewById(R.id.nameView);
         mEmail = findViewById(R.id.emailView);
         changeSettings = findViewById(R.id.changeSettings);
+
+
 
         // display name
         if (user != null) {

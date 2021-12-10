@@ -11,62 +11,108 @@
         android:id="@+id/changeSettingsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/montserrat"
         android:text="Change Settings"
         android:textColor="#5f8f8e"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editName"
+        app:layout_constraintStart_toStartOf="@+id/editName"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
-        android:ems="10"
-        android:fontFamily="@font/lato"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        android:textColor="#434343"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/changeSettingsText" />
-
-    <EditText
-        android:id="@+id/editEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:fontFamily="@font/lato"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:textColor="#434343"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editName" />
 
     <Button
         android:id="@+id/submitChangeButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginStart="2dp"
         android:text="Submit"
-        app:layout_constraintBottom_toTopOf="@id/cancelChangeButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cancelChangeButton"
+        app:layout_constraintEnd_toStartOf="@+id/cancelChangeButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/cancelChangeButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="2dp"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/submitChangeButton"
+        app:layout_constraintTop_toBottomOf="@+id/editConfirmPassword" />
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="54dp"
+        android:ems="12"
+        android:fontFamily="@font/lato"
+        android:hint="New name"
+        android:inputType="textPersonName"
+        android:textColor="#434343"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/editEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/changeSettingsText" />
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="54dp"
+        android:ems="12"
+        android:fontFamily="@font/lato"
+        android:hint="New password"
+        android:inputType="textPassword"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/editConfirmPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editEmailAddress" />
+
+    <EditText
+        android:id="@+id/editConfirmPassword"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="76dp"
+        android:ems="12"
+        android:fontFamily="@font/lato"
+        android:hint="Confirm new password"
+        android:inputType="textPassword"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/cancelChangeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+
+    <EditText
+        android:id="@+id/editEmailAddress"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="54dp"
+        android:ems="12"
+        android:fontFamily="@font/lato"
+        android:hint="New email"
+        android:inputType="textEmailAddress"
+        android:textColor="#434343"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/editPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editName" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
