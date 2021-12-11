@@ -42,6 +42,8 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
+
+
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
         mFullName = findViewById(R.id.nameView);
@@ -50,6 +52,8 @@ public class SettingsActivity extends AppCompatActivity {
         logOutBtn = findViewById(R.id.logout);
         changeProfileImage = findViewById(R.id.changeImage);
         storageReference = FirebaseStorage.getInstance().getReference();
+
+
 
         // display name
         if (user != null) {
