@@ -24,11 +24,11 @@ public class Activity {
             case 5:
                 return "recycled " + input + " items.";
             case 6:
-                return "turned his lights off.";
+                return "turned their lights off.";
             case 7:
                 return "volunteered " + input +" times.";
             case 8:
-                return "bought " + input + " items locally.";
+                return "bought " + input + " locally.";
         }
         return "";
     }
