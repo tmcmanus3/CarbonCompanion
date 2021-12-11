@@ -42,7 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseUser user;
     private NavigationBarView bottomNavigationView;
     private ImageView profileImage;
-    private Button changeProfileImage;
+    // private Button changeProfileImage;
     private Button setGoal;
     private StorageReference storageReference;
     private DatabaseReference mDatabase;
@@ -64,7 +64,7 @@ public class ProfileActivity extends AppCompatActivity {
         mDatabase = db.getReference(User.class.getSimpleName());
 
         profileImage = findViewById(R.id.profileImage);
-        changeProfileImage = findViewById(R.id.changeImage);
+        // changeProfileImage = findViewById(R.id.changeImage);
 
         // if profile image already exists on firebase, download that image and set it to the ImageView
         StorageReference profileRef = storageReference.child("users/" + user.getUid() + "/profile.jpg");
@@ -107,15 +107,15 @@ public class ProfileActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.profile);
         bottomNavigationView.setOnItemSelectedListener(bottomNavFunction);
 
-        // when the change profile image button is clicked
-        changeProfileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Open gallery to select photo
-                Intent openGalleryIntent  = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(openGalleryIntent, 1000);
-            }
-        });
+//        // when the change profile image button is clicked
+//        changeProfileImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Open gallery to select photo
+//                Intent openGalleryIntent  = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                startActivityForResult(openGalleryIntent, 1000);
+//            }
+//        });
 
         setGoal.setOnClickListener(new View.OnClickListener() {
             @Override
