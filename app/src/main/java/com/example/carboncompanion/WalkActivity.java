@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.DecimalFormat;
 
 public class WalkActivity extends AppCompatActivity {
+    public static int walkCounter;
     private Button walkBtn, backBtn;
     private EditText walkDist;
     private FirebaseAuth fAuth;
@@ -29,7 +30,6 @@ public class WalkActivity extends AppCompatActivity {
     private FirebaseUser user;
     private DatabaseReference mDatabase;
     private FirebaseDatabase db;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +77,7 @@ public class WalkActivity extends AppCompatActivity {
     // Update database
     // Need to increase total number of activities by 1. and total carbon saved by the passed argument
     private void addWalk(String distance, double carbon) {
+        walkCounter = 1;
         long curr = System.currentTimeMillis();
         Activity act = new Activity(1, distance);
         DatabaseReference curr_node = mDatabase.child("activities").child(String.valueOf(curr));
@@ -101,5 +102,9 @@ public class WalkActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public int getWalkCounter(){
+        return walkCounter;
     }
 }

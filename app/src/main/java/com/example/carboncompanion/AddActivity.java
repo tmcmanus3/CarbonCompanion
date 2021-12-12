@@ -40,7 +40,6 @@ public class AddActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), WalkActivity.class));
 
-
             }
         });
 

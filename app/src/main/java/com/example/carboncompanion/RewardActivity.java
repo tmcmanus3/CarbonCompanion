@@ -52,6 +52,17 @@ public class RewardActivity extends AppCompatActivity {
         // will have to create new image view per reward total (should have a max # of 12)
         ImageView imgView = (ImageView)findViewById(R.id.reward_icon);
         ImageView imgView2 = (ImageView)findViewById(R.id.reward_icon2);
+        ImageView imgView3 = (ImageView)findViewById(R.id.reward_icon3);
+        ImageView imgView4 = (ImageView)findViewById(R.id.reward_icon4);
+        ImageView imgView5 = (ImageView)findViewById(R.id.reward_icon5);
+        ImageView imgView6 = (ImageView)findViewById(R.id.reward_icon6);
+        ImageView imgView7 = (ImageView)findViewById(R.id.reward_icon7);
+        ImageView imgView8 = (ImageView)findViewById(R.id.reward_icon8);
+        ImageView imgView9 = (ImageView)findViewById(R.id.reward_icon9);
+        ImageView imgView10 = (ImageView)findViewById(R.id.reward_icon10);
+        ImageView imgView11 = (ImageView)findViewById(R.id.reward_icon11);
+
+
 
         if (user != null) {
             DatabaseReference child = mDatabase.child(user.getUid());
@@ -71,7 +82,7 @@ public class RewardActivity extends AppCompatActivity {
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards);
                         imgView.setVisibility(View.VISIBLE);
-                        rewards.add("Logged first goal!");
+                        rewards.add("Logged first activity!");
                     }
 
                     // REWARD 2: Hit goal
@@ -85,13 +96,87 @@ public class RewardActivity extends AppCompatActivity {
 
                     }
 
-                    // TODO: Track when a user logs first activity of its type, use Activity.getActivityType()
-                    //  in Activity class; REWARD 3-12: this should track if when a user logs first activity of its type
-                    //  i.e. Reward: "First walk!" when first activity of Activity_Type=1 is logged
+                    // first walk
+                    String walk = "walk";
+                    if (curr.getActivities().contains(walk)){
+                        numRewards++;
+                        rewardTotal.setText("Rewards: "+ numRewards);
+                        imgView3.setVisibility(View.VISIBLE);
+                        rewards.add("Logged first walk!");
+                    }
 
-                    /**for (int i=0; i<currActivities; ){
-                     // DatabaseReference curr_node = mDatabase.child("activities").child(String.valueOf(curr));
-                     }**/
+                    //  Check if bussed
+                    String bus = "bus";
+                    if (curr.getActivities().toLowerCase().contains(bus)){
+                        numRewards++;
+                        rewardTotal.setText("Rewards: "+ numRewards);
+                        imgView4.setVisibility(View.VISIBLE);
+                        rewards.add("Logged first bus!");
+                    }
+                    Log.i("Print:",curr.getActivities().toString());
+
+                    // Check if volunteered
+                    String volunteer = "volunteer";
+                    if (curr.getActivities().toLowerCase().contains(volunteer)){
+                        numRewards++;
+                        rewardTotal.setText("Rewards: "+ numRewards);
+                        imgView5.setVisibility(View.VISIBLE);
+                        rewards.add("First time volunteering!");
+                    }
+
+                    // Check if biked
+                    String bike = "bike";
+                    if (curr.getActivities().toLowerCase().contains(bike)){
+                        numRewards++;
+                        rewardTotal.setText("Rewards: "+ numRewards);
+                        imgView6.setVisibility(View.VISIBLE);
+                        rewards.add("Logged first bike ride!");
+                    }
+
+                    // check if shopped locally
+                    String local = "local";
+                    if (curr.getActivities().toLowerCase().contains(local)){
+                        numRewards++;
+                        rewardTotal.setText("Rewards: "+ numRewards);
+                        imgView7.setVisibility(View.VISIBLE);
+                        rewards.add("First local purchase!");
+                    }
+
+                    // check if planted a tree
+                    String tree = "tree";
+                    if (curr.getActivities().toLowerCase().contains(tree)){
+                        numRewards++;
+                        rewardTotal.setText("Rewards: "+ numRewards);
+                        imgView8.setVisibility(View.VISIBLE);
+                        rewards.add("Planted first tree!");
+                    }
+
+                    // check if used vegetarian options
+                    String veg = "ate";
+                    if (curr.getActivities().toLowerCase().contains(veg)){
+                        numRewards++;
+                        rewardTotal.setText("Rewards: "+ numRewards);
+                        imgView9.setVisibility(View.VISIBLE);
+                        rewards.add("Used vegetarian options!");
+                    }
+                    // check if recycled
+                    String recycle = "recycle";
+                    if (curr.getActivities().toLowerCase().contains(recycle)){
+                        numRewards++;
+                        rewardTotal.setText("Rewards: "+ numRewards);
+                        imgView10.setVisibility(View.VISIBLE);
+                        rewards.add("Logged first recycling!");
+                    }
+                    // lights
+                    String lights = "lights";
+                    if (curr.getActivities().toLowerCase().contains(lights)){
+                        numRewards++;
+                        rewardTotal.setText("Rewards: "+ numRewards);
+                        imgView11.setVisibility(View.VISIBLE);
+                        rewards.add("Logged first recycling!");
+                    }
+
+
 
                     // AT END: prints out all rewards
                     Collections.reverse(rewards);
