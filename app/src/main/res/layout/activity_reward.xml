@@ -45,10 +45,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="150dp"
-
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-
-
         android:backgroundTint="#69916e"
         android:visibility="invisible"
         app:layout_constraintVertical_bias="0.075"
@@ -67,10 +64,9 @@
         app:layout_constraintEnd_toEndOf="@+id/reward_icon"
         app:layout_constraintStart_toStartOf="@+id/reward_icon"
         app:layout_constraintTop_toBottomOf="@+id/reward_icon"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintTop_toTopOf="@+id/reward_icon"
         app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
@@ -99,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="@+id/reward_icon3"
         app:layout_constraintStart_toStartOf="@+id/reward_icon3"
         app:layout_constraintTop_toBottomOf="@+id/reward_icon3"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintTop_toTopOf="@+id/reward_icon3"
@@ -173,42 +169,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/reward_icon"
-        android:layout_marginBottom="50dp"
+
+        app:layout_constraintEnd_toEndOf="@+id/reward_icon8"
+        app:layout_constraintStart_toStartOf="@+id/reward_icon8"
+        app:layout_constraintTop_toBottomOf="@+id/reward_icon8"
+        android:layout_marginTop="50dp"
+
         android:backgroundTint="#69916e"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/reward_icon8"
+
+
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <ImageView
         android:id="@+id/reward_icon10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/reward_icon"
-        android:layout_marginBottom="62dp"
+        app:layout_constraintEnd_toEndOf="@+id/reward_icon9"
+        app:layout_constraintStart_toStartOf="@+id/reward_icon9"
+        app:layout_constraintTop_toBottomOf="@+id/reward_icon9"
+        android:layout_marginBottom="50dp"
         android:backgroundTint="#69916e"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/reward_icon9"
+
+
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <ImageView
         android:id="@+id/reward_icon11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/reward_icon10"
+        app:layout_constraintStart_toStartOf="@+id/reward_icon10"
+        app:layout_constraintTop_toBottomOf="@+id/reward_icon10"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="#69916e"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.018"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reward_icon10"
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
