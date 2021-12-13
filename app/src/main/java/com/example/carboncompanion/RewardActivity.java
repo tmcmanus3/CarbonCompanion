@@ -48,20 +48,8 @@ public class RewardActivity extends AppCompatActivity {
         rewardTotal = findViewById(R.id.rewardTotal);
         rewardContent = findViewById(R.id.rewardContent);
 
-        // new image view per reward total
-        ImageView imgView = (ImageView)findViewById(R.id.reward_icon);
         ImageView imgView2 = (ImageView)findViewById(R.id.reward_icon2);
         ImageView imgView3 = (ImageView)findViewById(R.id.reward_icon3);
-        ImageView imgView4 = (ImageView)findViewById(R.id.reward_icon4);
-        ImageView imgView5 = (ImageView)findViewById(R.id.reward_icon5);
-        ImageView imgView6 = (ImageView)findViewById(R.id.reward_icon6);
-        ImageView imgView7 = (ImageView)findViewById(R.id.reward_icon7);
-        ImageView imgView8 = (ImageView)findViewById(R.id.reward_icon8);
-        ImageView imgView9 = (ImageView)findViewById(R.id.reward_icon9);
-        ImageView imgView10 = (ImageView)findViewById(R.id.reward_icon10);
-        ImageView imgView11 = (ImageView)findViewById(R.id.reward_icon11);
-
-
 
         if (user != null) {
             DatabaseReference child = mDatabase.child(user.getUid());
@@ -80,7 +68,8 @@ public class RewardActivity extends AppCompatActivity {
                         activityFirst = 1;
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards);
-                        imgView.setVisibility(View.VISIBLE);
+                        imgView2.setVisibility(View.VISIBLE);
+                        imgView3.setVisibility(View.VISIBLE);
                         rewards.add("Logged first activity!");
                     }
 
@@ -88,10 +77,7 @@ public class RewardActivity extends AppCompatActivity {
                     if (currActivities >= currGoal) {
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards); // TO DO: add rewards ++ count like in feed
-
                         rewards.add("Hit goal!");
-                        Log.i("REWARD", rewards.toString());
-                        imgView2.setVisibility(View.VISIBLE);
 
                     }
 
@@ -100,7 +86,6 @@ public class RewardActivity extends AppCompatActivity {
                     if (curr.getActivities().contains(walk)){
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards);
-                        imgView3.setVisibility(View.VISIBLE);
                         rewards.add("Logged first walk!");
                     }
 
@@ -109,7 +94,6 @@ public class RewardActivity extends AppCompatActivity {
                     if (curr.getActivities().toLowerCase().contains(bus)){
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards);
-                        imgView4.setVisibility(View.VISIBLE);
                         rewards.add("Logged first bus!");
                     }
                     Log.i("Print:",curr.getActivities().toString());
@@ -119,7 +103,7 @@ public class RewardActivity extends AppCompatActivity {
                     if (curr.getActivities().toLowerCase().contains(volunteer)){
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards);
-                        imgView5.setVisibility(View.VISIBLE);
+
                         rewards.add("First time volunteering!");
                     }
 
@@ -128,7 +112,6 @@ public class RewardActivity extends AppCompatActivity {
                     if (curr.getActivities().toLowerCase().contains(bike)){
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards);
-                        imgView6.setVisibility(View.VISIBLE);
                         rewards.add("Logged first bike ride!");
                     }
 
@@ -137,7 +120,7 @@ public class RewardActivity extends AppCompatActivity {
                     if (curr.getActivities().toLowerCase().contains(local)){
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards);
-                        imgView7.setVisibility(View.VISIBLE);
+
                         rewards.add("First local purchase!");
                     }
 
@@ -146,7 +129,7 @@ public class RewardActivity extends AppCompatActivity {
                     if (curr.getActivities().toLowerCase().contains(tree)){
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards);
-                        imgView8.setVisibility(View.VISIBLE);
+
                         rewards.add("Planted first tree!");
                     }
 
@@ -155,7 +138,7 @@ public class RewardActivity extends AppCompatActivity {
                     if (curr.getActivities().toLowerCase().contains(veg)){
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards);
-                        imgView9.setVisibility(View.VISIBLE);
+
                         rewards.add("Used vegetarian options!");
                     }
                     // check if recycled
@@ -163,7 +146,6 @@ public class RewardActivity extends AppCompatActivity {
                     if (curr.getActivities().toLowerCase().contains(recycle)){
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards);
-                        imgView10.setVisibility(View.VISIBLE);
                         rewards.add("Logged first recycling!");
                     }
                     // lights
@@ -171,14 +153,13 @@ public class RewardActivity extends AppCompatActivity {
                     if (curr.getActivities().toLowerCase().contains(lights)){
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards);
-                        imgView11.setVisibility(View.VISIBLE);
+
                         rewards.add("Turned off lights for the first time!");
                     }
 
                     // AT END: prints out all rewards
                     Collections.reverse(rewards);
                     for (String reward: rewards) {
-                        Log.i("REWARD1", reward);
                         builder.append(reward + "\n");
                     }
                     rewardContent.setText(builder.toString());
