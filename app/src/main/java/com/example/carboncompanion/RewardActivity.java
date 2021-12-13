@@ -173,10 +173,8 @@ public class RewardActivity extends AppCompatActivity {
                         numRewards++;
                         rewardTotal.setText("Rewards: "+ numRewards);
                         imgView11.setVisibility(View.VISIBLE);
-                        rewards.add("Logged first recycling!");
+                        rewards.add("Turned off lights for the first time!");
                     }
-
-
 
                     // AT END: prints out all rewards
                     Collections.reverse(rewards);

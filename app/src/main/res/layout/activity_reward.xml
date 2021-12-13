@@ -42,17 +42,14 @@
         android:id="@+id/reward_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:lineSpacingMultiplier="2.1"
+        android:layout_marginTop="45dp"
         android:backgroundTint="#69916e"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.075"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rewardTotal"
-        app:layout_constraintVertical_bias="0.104"
-        android:layout_below="@+id/rewardTotal"
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <ImageView
@@ -61,25 +58,21 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#69916e"
         android:visibility="invisible"
+        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reward_icon"
-        android:layout_below="@+id/reward_icon"
-        app:layout_constraintVertical_bias="0.104"
+        app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <ImageView
         android:id="@+id/reward_icon3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_below="@+id/reward_icon"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="56dp"
-
-        android:layout_marginBottom="108dp"
+        android:layout_marginTop="15dp"
         android:backgroundTint="#69916e"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,7 +80,7 @@
         app:layout_constraintHorizontal_bias="0.021"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reward_icon2"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <ImageView
@@ -96,13 +89,14 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#69916e"
         android:visibility="invisible"
+        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reward_icon3"
         android:layout_below="@+id/reward_icon"
-        app:layout_constraintVertical_bias="0.104"
+        app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <ImageView
@@ -116,28 +110,25 @@
         app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reward_icon4"
-        android:layout_below="@+id/reward_icon"
-        app:layout_constraintVertical_bias="0.104"
+        android:layout_below="@+id/reward_icon4"
+        android:layout_marginTop="15dp"
+        app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <ImageView
         android:id="@+id/reward_icon6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/reward_icon5"
-
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="108dp"
-
         android:backgroundTint="#69916e"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reward_icon5"
-        app:layout_constraintVertical_bias="0.0"
+        android:layout_below="@+id/reward_icon5"
+        android:layout_marginTop="15dp"
+        app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <ImageView
@@ -152,13 +143,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reward_icon6"
         android:layout_below="@+id/reward_icon6"
-        app:layout_constraintVertical_bias="0.104"
-        app:srcCompat="@drawable/ic_baseline_stars_24" />
+        android:layout_marginTop="15dp"
+        app:layout_constraintVertical_bias="0.075"
+        app:srcCompat="@drawable/ic_baseline_stars_24"
+        />
 
     <ImageView
         android:id="@+id/reward_icon8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/reward_icon7"
+        android:layout_marginTop="15dp"
         android:backgroundTint="#69916e"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -166,14 +161,15 @@
         app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reward_icon7"
-        android:layout_below="@+id/reward_icon7"
-        app:layout_constraintVertical_bias="0.104"
+        app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <ImageView
         android:id="@+id/reward_icon9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/reward_icon8"
+        android:layout_marginTop="15dp"
         android:backgroundTint="#69916e"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -181,8 +177,7 @@
         app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reward_icon8"
-        android:layout_below="@+id/reward_icon8"
-        app:layout_constraintVertical_bias="0.104"
+        app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <ImageView
@@ -197,7 +192,8 @@
         app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reward_icon9"
-        app:layout_constraintVertical_bias="0.104"
+        android:layout_marginTop="15dp"
+        app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <ImageView
@@ -212,7 +208,8 @@
         app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reward_icon10"
-        app:layout_constraintVertical_bias="0.104"
+        android:layout_marginTop="15dp"
+        app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
