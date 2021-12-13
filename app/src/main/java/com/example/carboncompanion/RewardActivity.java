@@ -41,7 +41,6 @@ public class RewardActivity extends AppCompatActivity {
 
         activityText = findViewById(R.id.activityText);
         db = FirebaseDatabase.getInstance();
-       // mDatabase = db.getReference();
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
         mDatabase = db.getReference(User.class.getSimpleName());
@@ -49,7 +48,7 @@ public class RewardActivity extends AppCompatActivity {
         rewardTotal = findViewById(R.id.rewardTotal);
         rewardContent = findViewById(R.id.rewardContent);
 
-        // will have to create new image view per reward total (should have a max # of 12)
+        // new image view per reward total
         ImageView imgView = (ImageView)findViewById(R.id.reward_icon);
         ImageView imgView2 = (ImageView)findViewById(R.id.reward_icon2);
         ImageView imgView3 = (ImageView)findViewById(R.id.reward_icon3);

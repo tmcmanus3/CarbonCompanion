@@ -192,7 +192,6 @@
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reward_icon9"
-
         app:srcCompat="@drawable/ic_baseline_stars_24" />
 
     <ImageView
